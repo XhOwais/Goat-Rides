@@ -22,7 +22,8 @@ const infoList = [
 
 const carInfo = {
   company: 'Nissan',
-  makeModel: 'Fairlady 300ZX'
+  makeModel: 'Fairlady 300ZX',
+  varient: '(Z32) 1989',
 };
 
 export default function Main() {
@@ -47,13 +48,13 @@ export default function Main() {
               </a>
             ))}
           </ul>
-          <div className="flex justify-center">
-            <div className="">
+          <div className="flex justify-center flex-col mt-120">
+            <div className=" -translate-y-60">
               <h3 className="text-42 font-medium absolute">{carInfo.company}</h3>
               <h1 className="text-128 font-bold">{carInfo.makeModel}</h1>
-              <a className="px-16 py-12 bg-black rounded-md text-white float-right" href="">Quote Now</a>
+              <h3 className=' text-32 font-medium float-right'>{carInfo.varient}</h3>
             </div>
-            <img className='absolute w-800' src={nissanFailady} alt="" />
+            <img className=' absolute w-800 ' src={nissanFailady}  alt="" />
           </div>
         </div>
       </div>
