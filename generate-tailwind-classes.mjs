@@ -24,7 +24,7 @@ const fontSizes = generateClasses(minFontSize, maxFontSize, fontSizeIncrement);
 const bgColors = {
   bg: '#D9D9D9',
   section: '#F9F9F9',
-  first: '#363636',
+  first: '#C04747',
   second: '#F96666',
   heading: '#363636',
   text: '#7A7A7A',
@@ -35,6 +35,7 @@ const fontFamilies = {
   body: ['Ubuntu', 'Open-sans'], // Use your local font's name here
   heading: ['Modern', 'sans-serif'], // Add the Ubuntu font
   name: ['Modernone', 'Modernone'],
+  sub: ['Bebase', 'Bebase'],
 };
 
 const textColors = {
@@ -43,7 +44,7 @@ const textColors = {
   sub: '#7A7A7A',
   body: '#756B6B',
   text: '#F8F8F8',
-  hover: '#F96666',
+  hover: '#C04747',
   // ... add more colors as needed
 };
 

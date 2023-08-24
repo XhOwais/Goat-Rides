@@ -11,8 +11,8 @@ const ModelViewer = () => {
 
   return (
     <Canvas
-      camera={{ position: [0, 2, 5] }}
-      style={{ width: '100%', height: 'auto' }}
+      camera={{ position: [4, 2, 5] }}
+      style={{ width: '900px', height: '800px' }}
     >
       <ambientLight />
       <directionalLight intensity={2} position={[0, 40, -10]} />
@@ -25,7 +25,7 @@ const ModelViewer = () => {
 
       <Controls enableZoom={false} /> {/* Disable zoom */}
       <Suspense fallback={null}>
-        <Model url={modelUrl} scale={0.5} />
+        <Model url={modelUrl} scale={0.7} />
       </Suspense>
     </Canvas>
   );

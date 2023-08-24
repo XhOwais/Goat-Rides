@@ -27,8 +27,8 @@ const carInfo = {
   fuel: 'Petrol',
   transmission: 'Automatic',
   make: 'Nissan',
-  model: 'Fairlady 300ZX',
-  variant: '(Z32) 1989',
+  model: 'Fairlady',
+  variant: '300ZX',
   price: 7000,
 };
 
@@ -59,60 +59,23 @@ export default function Main() {
 
   return (
     <>
-      <div className=' h-screen relative overflow-x-hidden '>
-        <div className='absolute top-0'>
+      <div className=' h-screen w-full flex flex-col justify-between'>
+        <div className=''>
           <Navbar />
         </div>
-        <div className="main-container w-full h-full flex flex-col justify-between  relative mt-96">
-        <div className=' flex w-full justify-between px-60'>
-          <div >
-            <h2 className=' text-42 font-bold'>{carInfo.make} {carInfo.model}</h2>
-            <h6 className=' text-22'>{carInfo.variant}</h6>
-          </div>
-          <div>
-            <h2 className=' font-bold text-42'><span className=' text-16'>$</span>{carInfo.price}</h2>
-          </div>
+        <div className="main-container flex flex-col items-center">
+        <div className=" w-847 translate-y-16">
+          <h4 className=' font-sub text-64 -mb-36'>{carInfo.year}</h4>
+          <h1 className=' font-heading text-64 '>{carInfo.make} {carInfo.model}</h1>
+          <h4 className=' font-sub text-64 float-right -mt-36'>{carInfo.variant}</h4>
         </div>
-        <div className=' flex justify-between px-60'>
-        <ul className=" flex flex-col gap-4">
-            {infoList.map((item, index) => (
-              <a
-                className='flex h-auto items-center'
-                key={index}
-                href=""
-                onClick={(e) => handleLinkClick(e, item.heading)}
-              >
-                <li className="py-12 px-12 mr-6 rounded-full bg-slate-100 text-white flex justify-center items-center">
-                  <img className='w-24' src={item.icon} alt="" />
-                </li>
-                {item.heading}
-              </a>
-            ))}
-          </ul>
+        <div className=' w-full flex justify-center items-start relative'>
+        <div className="">
+          <h4 className=' text-299'>{carInfo.yaer}</h4>
+        </div>
           <ModelViewer />
-          <ul className=" flex flex-col gap-4">
-            {infoList.map((item, index) => (
-              <a
-                className='flex h-auto items-center'
-                key={index}
-                href=""
-                onClick={(e) => handleLinkClick(e, item.heading)}
-              >
-                <li className="py-12 px-12 mr-6 rounded-full bg-slate-100 text-white flex justify-center items-center">
-                  <img className='w-24' src={item.icon} alt="" />
-                </li>
-                {item.heading}
-              </a>
-            ))}
-          </ul>
-          
+          <div className=" w-500 h-500 bg-first rounded-full absolute -z-10"></div>
         </div>
-        <div className=' flex justify-between px-60'>
-            <div className=' w-400 h-250 bg-slate-200 rounded-lg'></div>
-            <div className=' w-400 h-250 bg-slate-200 rounded-lg'></div>
-            <div className=' w-400 h-250 bg-slate-200 rounded-lg'></div>
-          </div>
-          {/* {renderSection()} */}
         </div>
       </div>
     </>

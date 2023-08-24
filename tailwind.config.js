@@ -4059,7 +4059,7 @@ export default {
       "backgroundColor": {
         "bg": "#D9D9D9",
         "section": "#F9F9F9",
-        "first": "#363636",
+        "first": "#C04747",
         "second": "#F96666",
         "heading": "#363636",
         "text": "#7A7A7A"
@@ -4076,6 +4076,10 @@ export default {
         "name": [
           "Modernone",
           "Modernone"
+        ],
+        "sub": [
+          "Bebase",
+          "Bebase"
         ]
       },
       "fontSize": {
@@ -5085,7 +5089,7 @@ export default {
         "sub": "#7A7A7A",
         "body": "#756B6B",
         "text": "#F8F8F8",
-        "hover": "#F96666"
+        "hover": "#C04747"
       }
     }
   },
