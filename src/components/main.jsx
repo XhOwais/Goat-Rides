@@ -79,12 +79,6 @@ export default function Main() {
           </ul>
           {renderSection()}
         </div>
-        <div className={`h-128 mx-220 bg-stone-100 rounded-xl ${activeSection === 'Model' ? 'block' : 'hidden'} flex items-center justify-between px-96 text-32`}>
-          <p className=' h-full w-auto flex items-center '>{carInfo.year}</p>
-          <p className=' h-full w-auto flex items-center '>{carInfo.mileage}</p>
-          <p className=' h-full w-auto flex items-center '>{carInfo.fuel}</p>
-          <p className=' h-full w-auto flex items-center '>{carInfo.transmission}</p>
-        </div>
       </div>
     </>
   );
@@ -93,13 +87,20 @@ export default function Main() {
 const Model = () => {
   return (
     <>
-      <div className="w-full flex justify-between items-center mt-120 mx-240">
+      <div className="w-full flex flex-col items-center mt-120 mx-240">
         <div className="">
-          <h3 className="text-42 font-medium -mb-32">{carInfo.make}</h3>
-          <h1 className="text-96 font-bold -mb-24">{carInfo.model}</h1>
-          <h3 className=' text-32 font-medium float-right'>{carInfo.variant}</h3>
+          {/* <h3 className="text-42 font-medium -mb-32">{carInfo.make}</h3> */}
+          <h3 className=' w-full flex justify-center text-32'>meet you a car</h3>
+          <h1 className="text-96 font-bold -mb-24">{carInfo.model}{carInfo.variant}</h1>
+          {/* <h3 className=' text-32 font-medium float-right'>{carInfo.variant}</h3> */}
         </div>
-        <img className='w-800' src={nissanFairlady} alt="" />
+        <img className='w-auto' src={nissanFairlady} alt="" />
+        {/* <div className='h-128 w-full mx-220  rounded-xl  flex items-center justify-between px-96 text-32'>
+          <p className=' h-full w-auto flex items-center '>{carInfo.year}</p>
+          <p className=' h-full w-auto flex items-center '>{carInfo.mileage}</p>
+          <p className=' h-full w-auto flex items-center '>{carInfo.fuel}</p>
+          <p className=' h-full w-auto flex items-center '>{carInfo.transmission}</p>
+        </div> */}
       </div>
     </>
   );
