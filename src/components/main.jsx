@@ -96,11 +96,10 @@ export default function Main() {
     <>
       <div className=' h-screen w-full flex flex-col relative px-60 '>
         <div className=''>
-          <Navbar />
-          
+          <Navbar />  
         </div>
         <div className=' flex items-center order-2 absolute bottom-4 '>
-            <ul className="  ">
+            <ul className=" relative z-50">
               {infoList.map((item, index) => (
                 <a
                   className='flex h-auto items-center mb-24'
@@ -144,7 +143,9 @@ export default function Main() {
             <div className="">
               <h4 className=' text-299'>{carInfo.yaer}</h4>
             </div>
+            <div className=' -translate-y-20'>
             <ModelViewer />
+            </div>
             <div className=" w-500 h-500 bg-first rounded-full absolute -z-10"></div>
           </div>
         </div>

@@ -7,11 +7,11 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 extend({ OrbitControls });
 
 const ModelViewer = () => {
-  const modelUrl = './Cars/scene.gltf'; // Adjust the path as needed
+  const modelUrl = '../src/assets/Cars/scene.gltf'; // Adjust the path as needed
 
   return (
     <Canvas
-      camera={{ position: [4, 2, 5] }}
+      camera={{ position: [0, 2, 5] }}
       style={{ width: '900px', height: '800px' }}
     >
       <ambientLight />
@@ -25,7 +25,7 @@ const ModelViewer = () => {
 
       <Controls enableZoom={false} /> {/* Disable zoom */}
       <Suspense fallback={null}>
-        <Model url={modelUrl} scale={0.7} />
+        <Model url={modelUrl} scale={0.6} />
       </Suspense>
     </Canvas>
   );
