@@ -1,112 +1,122 @@
-  import React, { useState } from 'react';
-  import carIcon from '../assets/icons/car.svg';
-  import infoIcon from '../assets/icons/info.svg';
-  import buyIcon from '../assets/icons/dollar.svg';
-  import nissanFailady from '../assets/Cars/Nissan Fairlady 300ZX (Z32) 1989.png';
-  import Navbar from './navbar';
+import React, { useState } from 'react';
+import carIcon from '../assets/icons/car.svg';
+import infoIcon from '../assets/icons/info.svg';
+import buyIcon from '../assets/icons/dollar.svg';
+import nissanFairlady from '../assets/Cars/Nissan Fairlady 300ZX (Z32) 1989.png';
+import Navbar from './navbar';
 
-  const infoList = [
-    {
-      icon: carIcon,
-      heading: 'Model'
-    },
-    {
-      icon: infoIcon,
-      heading: 'Info'
-    },
-    {
-      icon: buyIcon,
-      heading: 'Buy'
-    },
-  ];
+const infoList = [
+  {
+    icon: carIcon,
+    heading: 'Model'
+  },
+  {
+    icon: infoIcon,
+    heading: 'Info'
+  },
+  {
+    icon: buyIcon,
+    heading: 'Buy'
+  },
+];
 
-  const carInfo = {
-    company: 'Nissan',
-    makeModel: 'Fairlady 300ZX',
-    varient: '(Z32) 1989',
+const carInfo = {
+  year: 1989,
+  mileage: '27,000 km',
+  fuel: 'Petrol',
+  transmission: 'Automatic',
+  make: 'Nissan',
+  model: 'Fairlady 300ZX',
+  variant: '(Z32) 1989'
+};
+
+export default function Main() {
+  const [activeSection, setActiveSection] = useState('Model');
+
+  const handleHeaderItemClick = (section) => {
+    setActiveSection(section);
   };
 
-  export default function Main() {
-    const [activeSection, setActiveSection] = useState('Model');
+  const renderSection = () => {
+    switch (activeSection) {
+      case 'Model':
+        return <Model />;
+      case 'Info':
+        return <About />;
+      case 'Buy':
+        return <Buy />;
+      default:
+        return null;
+    }
+  };
 
-    const handleHeaderItemClick = (section) => {
-      setActiveSection(section);
-    };
+  const handleLinkClick = (event, section) => {
+    event.preventDefault();
+    handleHeaderItemClick(section);
+  };
 
-    const renderSection = () => {
-      switch (activeSection) {
-        case 'Model':
-          return <Model />;
-        case 'Info':
-          return <About />;
-        case 'Buy':
-          return <Buy />;
-        default:
-          return null;
-      }
-    };
-    
-    const handleLinkClick = (event, section) => {
-      event.preventDefault();
-      handleHeaderItemClick(section);
-    };
-
-    return (
-      <>
-        <div className='relative'>
-          <div className='absolute top-0'>
-            <Navbar />
-          </div>
-          <div className="main-container w-full h-screen flex justify-center items-center relative">
-            <ul className="absolute left-4 flex flex-col gap-4">
-              {infoList.map((item, index) => (
-                <a
-                  className='flex h-auto items-center'
-                  key={index}
-                  href=""
-                  onClick={(e) => handleLinkClick(e, item.heading)}
-                >
-                  <li className="py-12 px-12 mr-6 rounded-full bg-slate-100 text-white flex justify-center items-center">
-                    <img className='w-24' src={item.icon} alt="" />
-                  </li>
-                  {item.heading}
-                </a>
-              ))}
-            </ul>
-            {renderSection()}
-          </div>
+  return (
+    <>
+      <div className='relative overflow-x-hidden'>
+        <div className='absolute top-0'>
+          <Navbar />
         </div>
-      </>
-    );
-  }
-
-  const Model = () => {
-    return (
-      <>
-        <div className="flex justify-center flex-col mt-120">
-          <div className=" -translate-y-60">
-            <h3 className="text-42 font-medium absolute">{carInfo.company}</h3>
-            <h1 className="text-128 font-bold">{carInfo.makeModel}</h1>
-            <h3 className=' text-32 font-medium float-right'>{carInfo.varient}</h3>
-          </div>
-          <img className=' absolute w-800 ' src={nissanFailady} alt="" />
+        <div className="main-container w-full flex justify-center items-center relative mt-96">
+          <ul className="absolute left-4 flex flex-col gap-4">
+            {infoList.map((item, index) => (
+              <a
+                className='flex h-auto items-center'
+                key={index}
+                href=""
+                onClick={(e) => handleLinkClick(e, item.heading)}
+              >
+                <li className="py-12 px-12 mr-6 rounded-full bg-slate-100 text-white flex justify-center items-center">
+                  <img className='w-24' src={item.icon} alt="" />
+                </li>
+                {item.heading}
+              </a>
+            ))}
+          </ul>
+          {renderSection()}
         </div>
-      </>
-    );
-  };
+        <div className={`h-128 mx-220 bg-stone-100 rounded-xl ${activeSection === 'Model' ? 'block' : 'hidden'} flex items-center justify-between px-96 text-32`}>
+          <p className=' h-full w-auto flex items-center '>{carInfo.year}</p>
+          <p className=' h-full w-auto flex items-center '>{carInfo.mileage}</p>
+          <p className=' h-full w-auto flex items-center '>{carInfo.fuel}</p>
+          <p className=' h-full w-auto flex items-center '>{carInfo.transmission}</p>
+        </div>
+      </div>
+    </>
+  );
+}
 
-  const About = () => {
-    return (
-      <>
-        <h1>About</h1>
-      </>
-    );
-  };
+const Model = () => {
+  return (
+    <>
+      <div className="w-full flex justify-between items-center mt-120 mx-240">
+        <div className="">
+          <h3 className="text-42 font-medium -mb-32">{carInfo.make}</h3>
+          <h1 className="text-96 font-bold -mb-24">{carInfo.model}</h1>
+          <h3 className=' text-32 font-medium float-right'>{carInfo.variant}</h3>
+        </div>
+        <img className='w-800' src={nissanFairlady} alt="" />
+      </div>
+    </>
+  );
+};
 
-  const Buy = () => {
-    return (
-      <>
-        <h1>Buy</h1>
-      </>
-    );
-  };
+const About = () => {
+  return (
+    <>
+      <h1 className='mt-200'>About</h1>
+    </>
+  );
+};
+
+const Buy = () => {
+  return (
+    <>
+      <h1 className='mt-200'>Buy</h1>
+    </>
+  );
+};
