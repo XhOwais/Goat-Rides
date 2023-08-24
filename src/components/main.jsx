@@ -9,15 +9,12 @@ import Navbar from './navbar';
 const infoList = [
   {
     icon: carIcon,
-    heading: 'Model'
   },
   {
     icon: infoIcon,
-    heading: 'Info'
   },
   {
     icon: buyIcon,
-    heading: 'Buy'
   },
 ];
 
@@ -59,9 +56,25 @@ export default function Main() {
 
   return (
     <>
-      <div className=' h-screen w-full flex flex-col justify-between'>
+      <div className=' h-screen w-full flex flex-col relative overflow-x-hidden'>
         <div className=''>
           <Navbar />
+        <div>
+        <ul className=" ">
+            {infoList.map((item, index) => (
+              <a
+                className='flex h-auto items-center'
+                key={index}
+                href=""
+                onClick={(e) => handleLinkClick(e, item.heading)}
+              >
+                <li className="py-12 px-12 mr-6 rounded-full bg-slate-100 text-white flex justify-center items-center">
+                  <img className='w-24' src={item.icon} alt="" />
+                </li>
+              </a>
+            ))}
+          </ul>
+        </div>
         </div>
         <div className="main-container flex flex-col items-center">
         <div className=" w-847 translate-y-16">
