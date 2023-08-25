@@ -114,7 +114,7 @@ export default function Main() {
         <div className=''>
           <Navbar />  
         </div>
-        <div className=' w-full flex items-end justify-between order-2'>
+        <div className=' flex items-center  order-2 absolute bottom-0'>
             <ul className=" relative z-50">
               {infoList.map((item, index) => (
                 <a
@@ -129,7 +129,7 @@ export default function Main() {
                 </a>
               ))}
             </ul>
-            <div className=' h-96 w-auto flex  justify-between'>
+            {/* <div className=' h-96 w-auto flex  justify-between ml-40'>
               {vehicleSpecifications.map(category => (
                 <div className=' px-42' key={category.category}>
                   <h2 className=' font-heading text-16 '>{category.category}</h2>
@@ -147,15 +147,30 @@ export default function Main() {
                   </ul>
                 </div>
               ))}
+            </div> */}
+            
+          </div>
+         <div className=' w-full flex justify-center items-center'>
+         <div className=' w-auto flex flex-col  justify-between'>
+              {vehicleSpecifications.map(category => (
+                <div className=' py-42' key={category.category}>
+                  <h2 className=' font-heading text-16 '>{category.category}</h2>
+                  <ul>
+                    {category.values.map(value => (
+                      <li className=' font-body font-bold text-32 text-hover -mt-12' key={value.unit}>
+                        {value.value}
+                      </li>
+                    ))}
+                    {category.valuesInSI.map(value => (
+                      <li className=' font-body font-bold text-16 -mt-10' key={value.unit}>
+                        {value.value}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
-            <div className=' w-200 order-4 '>
-           {featuredCars.map((item,index)=>(
-            <a className=' w-200 h-150 ' href=''><img className=' overflow-hidden bg-white rounded-2xl' src={item.img} alt="" srcset="" /></a>
-           ))}
-          </div>
-          </div>
-         
-        <div className="main-container flex flex-col items-center justify-between order-1">
+        <div className="main-container flex flex-col items-center justify-between ">
           <div>
           <div className=" w-847 translate-y-16">
             <h4 className=' font-sub text-64 -mb-36'>{carInfo.year}</h4>
@@ -174,45 +189,34 @@ export default function Main() {
           </div>
           
         </div>
+        {/* <div className=' w-200 order-4 absolute right-12 '>
+           {featuredCars.map((item,index)=>(
+            <a className=' w-200 h-150 ' href=''><img className=' overflow-hidden bg-white rounded-2xl' src={item.img} alt="" srcset="" /></a>
+           ))}
+          </div> */}
+          <div className=' w-auto flex flex-col  justify-between'>
+              {vehicleSpecifications.map(category => (
+                <div className=' py-42' key={category.category}>
+                  <h2 className=' font-heading text-16 flex justify-end '>{category.category}</h2>
+                  <ul>
+                    {category.values.map(value => (
+                      <li className=' font-body font-bold text-32 text-hover flex justify-end -mt-12' key={value.unit}>
+                        {value.value}
+                      </li>
+                    ))}
+                    {category.valuesInSI.map(value => (
+                      <li className=' font-body font-bold text-16 flex justify-end -mt-10' key={value.unit}>
+                        {value.value}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
       </div>
     </>
   );
 }
 
-const Model = () => {
-  return (
-    <>
-      <div className="w-full flex flex-col items-center mt-120 mx-240">
-        <div className="">
-          {/* <h3 className="text-42 font-medium -mb-32">{carInfo.make}</h3> */}
-          {/* <h3 className=' w-full flex justify-center text-32'>meet you a car</h3>
-          <h1 className="text-96 font-bold -mb-24">{carInfo.make} {carInfo.model}</h1> */}
-          {/* <h3 className=' text-32 font-medium float-right'>{carInfo.variant}</h3> */}
-        </div>
-        {/* <img className='w-auto' src={nissanFairlady} alt="" /> */}
-        {/* <div className='h-128 w-full mx-220  rounded-xl  flex items-center justify-between px-96 text-32'>
-          <p className=' h-full w-auto flex items-center '>{carInfo.year}</p>
-          <p className=' h-full w-auto flex items-center '>{carInfo.mileage}</p>
-          <p className=' h-full w-auto flex items-center '>{carInfo.fuel}</p>
-          <p className=' h-full w-auto flex items-center '>{carInfo.transmission}</p>
-        </div> */}
-      </div>
-    </>
-  );
-};
 
-const About = () => {
-  return (
-    <>
-      <h1 className='mt-200'>About</h1>
-    </>
-  );
-};
-
-const Buy = () => {
-  return (
-    <>
-      <h1 className='mt-200'>Buy</h1>
-    </>
-  );
-};
