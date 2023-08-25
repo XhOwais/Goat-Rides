@@ -3,6 +3,9 @@ import carIcon from '../assets/icons/car.svg';
 import infoIcon from '../assets/icons/info.svg';
 import buyIcon from '../assets/icons/dollar.svg';
 import ModelViewer from "./ModelViewer";
+import car1 from '../assets/Cars/Featured-Cars/car1.png'
+import car2 from '../assets/Cars/Featured-Cars/car2.png'
+import car3 from '../assets/Cars/Featured-Cars/car3.png'
 
 import Navbar from './navbar';
 
@@ -66,6 +69,19 @@ const vehicleSpecifications = [
   }
 ];
 
+const featuredCars =[{
+  img: car1,
+  link:"car-featured-car1"
+},
+{
+  img: car2,
+  link:"car-featured-car2"
+},
+{
+  img: car3,
+  link:"car-featured-car3"
+},]
+
 
 export default function Main() {
   const [activeSection, setActiveSection] = useState('Model');
@@ -98,7 +114,7 @@ export default function Main() {
         <div className=''>
           <Navbar />  
         </div>
-        <div className=' flex items-center order-2 absolute bottom-4 '>
+        <div className=' w-full flex items-end justify-between order-2'>
             <ul className=" relative z-50">
               {infoList.map((item, index) => (
                 <a
@@ -132,8 +148,15 @@ export default function Main() {
                 </div>
               ))}
             </div>
+            <div className=' w-200 order-4 '>
+           {featuredCars.map((item,index)=>(
+            <a className=' w-200 h-150 ' href=''><img className=' overflow-hidden bg-white rounded-2xl' src={item.img} alt="" srcset="" /></a>
+           ))}
           </div>
-        <div className="main-container flex flex-col items-center order-1">
+          </div>
+         
+        <div className="main-container flex flex-col items-center justify-between order-1">
+          <div>
           <div className=" w-847 translate-y-16">
             <h4 className=' font-sub text-64 -mb-36'>{carInfo.year}</h4>
             <h1 className=' font-heading text-64 '>{carInfo.make} {carInfo.model}</h1>
@@ -148,6 +171,8 @@ export default function Main() {
             </div>
             <div className=" w-500 h-500 bg-first rounded-full absolute -z-10"></div>
           </div>
+          </div>
+          
         </div>
       </div>
     </>
