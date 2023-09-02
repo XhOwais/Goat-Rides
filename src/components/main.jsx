@@ -6,9 +6,9 @@ import engineIcon from '../assets/icons/engine.svg'
 import transmissionIcon from '../assets/icons/transmission.svg'
 import speedIcon from '../assets/icons/speed.svg'
 import ModelViewer from "./ModelViewer";
-import car1 from '../assets/Cars/Featured-Cars/car1.png'
-import car2 from '../assets/Cars/Featured-Cars/car2.png'
-import car3 from '../assets/Cars/Featured-Cars/car3.png'
+import car1 from '../../public/Cars/Featured-Cars/car1.png'
+import car2 from '../../public/Cars/Featured-Cars/car2.png'
+import car3 from '../../public/Cars/Featured-Cars/car3.png'
 
 import Navbar from './navbar';
 

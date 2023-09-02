@@ -7,7 +7,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 extend({ OrbitControls });
 
 const ModelViewer = () => {
-  const modelUrl = `${process.env.PUBLIC_URL}/Cars/scene.gltf`; // Adjust the path as needed
+  const modelUrl = '../../public/Cars/scene.gltf'; // Adjust the path as needed
 
   return (
     <Canvas
